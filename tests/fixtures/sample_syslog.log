@@ -1,0 +1,27 @@
+May 23 02:14:33 Housing_Core_MKT bgp,info: peer 10.50.0.2 went down (peer-reset)
+May 23 02:14:55 Housing_Core_MKT bgp,info: peer 10.50.0.2 established
+May 23 02:31:12 Housing_Core_MKT bgp,info: peer 10.50.0.2 went down (hold-timer-expired)
+May 23 02:31:40 Housing_Core_MKT bgp,info: peer 10.50.0.2 established
+May 23 01:05:11 Housing_Core_MKT interface,info: ether4 link down
+May 23 01:05:19 Housing_Core_MKT interface,info: ether4 link up
+May 23 01:42:01 Housing_Core_MKT interface,info: ether4 link down
+May 23 01:42:08 Housing_Core_MKT interface,info: ether4 link up
+May 23 02:14:30 Housing_Core_MKT interface,info: ether4 link down
+May 23 02:14:38 Housing_Core_MKT interface,info: ether4 link up
+May 23 02:55:20 Housing_Core_MKT interface,info: ether4 link down
+May 23 02:55:28 Housing_Core_MKT interface,info: ether4 link up
+May 23 03:30:01 Housing_Core_MKT interface,info: ether4 link down
+May 23 03:30:09 Housing_Core_MKT interface,info: ether4 link up
+May 23 03:58:44 Housing_Core_MKT interface,info: ether4 link down
+May 23 03:58:51 Housing_Core_MKT interface,info: ether4 link up
+May 23 04:33:08 Saver_POP_SW %ENV-3-FAN-FAIL: Fan 2 stopped (rpm=0)
+May 23 04:33:22 Saver_POP_SW %ENV-3-FAN-FAIL: Fan 2 stopped (rpm=0)
+May 23 05:12:01 Ibrahimpur_Core_MKT auth: login failure from 192.168.99.10 (admin) - 3 attempts
+May 23 05:12:33 Ibrahimpur_Core_MKT auth: login failure from 192.168.99.10 (admin) - 4 attempts
+May 23 05:12:55 Ibrahimpur_Core_MKT auth: login failure from 192.168.99.10 (admin) - 5 attempts
+May 23 05:13:21 Ibrahimpur_Core_MKT auth: login failure from 192.168.99.10 (admin) - 6 attempts
+May 23 05:13:50 Ibrahimpur_Core_MKT auth: login failure from 192.168.99.10 (admin) - 7 attempts
+May 23 06:01:00 Desh-Edge-Rt rpd[1234]: BGP_REFRESH 10.20.0.1 (Internal AS 65000) refresh
+May 23 06:01:01 Desh-Edge-Rt rpd[1234]: BGP_REFRESH 10.20.0.2 (Internal AS 65000) refresh
+May 23 06:30:11 Housing_Core_MKT interface,info: ether4 link down
+May 23 06:30:19 Housing_Core_MKT interface,info: ether4 link up

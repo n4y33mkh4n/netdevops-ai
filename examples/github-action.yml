@@ -1,0 +1,52 @@
+# Drop into .github/workflows/explain-diff.yml in your network-config repo
+# to get an AI-written PR comment whenever a config file changes.
+
+name: Explain network config diff
+on:
+  pull_request:
+    paths:
+      - "**/*.cfg"
+      - "**/*.rsc"
+      - "**/*.conf"
+      - "configs/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+  models: read         # required for GitHub Models access
+
+jobs:
+  explain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need history for the diff
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install netdevops-ai
+        run: pip install netdevops-ai
+
+      - name: Generate explanation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LLM_MODEL: openai/gpt-4o
+        run: |
+          git diff origin/${{ github.base_ref }}...HEAD -- '*.cfg' '*.rsc' '*.conf' \
+            | netdevops-ai-diff --anonymize > /tmp/explanation.md
+
+      - name: Post PR comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('/tmp/explanation.md', 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              issue_number: context.issue.number,
+              body: `### 🤖 AI config-diff review\n\n${body}`,
+            });

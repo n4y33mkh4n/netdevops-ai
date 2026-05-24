@@ -1,0 +1,19 @@
+diff --git a/configs/Housing_Core_MKT.rsc b/configs/Housing_Core_MKT.rsc
+index 1234567..abcdef0 100644
+--- a/configs/Housing_Core_MKT.rsc
++++ b/configs/Housing_Core_MKT.rsc
+@@ -42,6 +42,12 @@
+ /routing bgp peer
+ add name=upstream-1 remote-address=10.40.0.1 remote-as=65010 \
+     hold-time=1m30s keepalive-time=30s
++add name=upstream-2 remote-address=10.50.0.2 remote-as=65010 \
++    hold-time=30s keepalive-time=10s \
++    in-filter=from-transit-v4
++
++/routing filter
++add chain=from-transit-v4 prefix=203.0.113.0/24 action=accept
+@@ -55,3 +61,5 @@
+ /queue simple
+ add name=cust-cust100 target=10.100.0.0/16 max-limit=100M/100M
++add name=cust-cust200 target=10.100.0.5/32 max-limit=50M/50M \
++    comment="customer-id=ACME-200; activated 2026-05-24"
